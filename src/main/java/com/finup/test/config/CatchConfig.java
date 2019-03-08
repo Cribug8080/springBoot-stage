@@ -11,11 +11,15 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class CatchConfig {
 
+    /**
+     * 登录过期时间
+     * @return
+     */
     @Bean
     @Primary
     public CacheManager catchManager(){
         CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
-        caffeineCacheManager.setCaffeineSpec(CaffeineSpec.parse("expireAfterAccess=10m"));
+        caffeineCacheManager.setCaffeineSpec(CaffeineSpec.parse("expireAfterAccess=20m"));
         return caffeineCacheManager;
     }
 }
