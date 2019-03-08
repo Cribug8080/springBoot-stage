@@ -57,4 +57,23 @@ public class User {
         res.put("pageSize",pageSize);
         return res;
     }
+
+    /**
+     * 测试数据
+     * @param name[]
+     * return list
+     */
+
+    @GetMapping("/getUserByName")
+    @ApiOperation("根据名字查询人")
+    public List getUserByName(@RequestParam() String[] names){
+        List<JSONObject> list = new ArrayList<>();
+        for(int i = 0;i<names.length;i++){
+            JSONObject json = new JSONObject();
+            json.put("name",names[i]);
+            json.put("sex","M");
+            list.add(json);
+        }
+        return list;
+    }
 }
